@@ -2,6 +2,16 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ArticleAppAssignment" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/appbar</item>
     </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/custom</item>
+    </style>
+
+    <style name="ThemeOverlay.MyPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/appbar</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
 </resources>
