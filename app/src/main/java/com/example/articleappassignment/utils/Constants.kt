@@ -21,6 +21,9 @@ class Constants {
         private const val TIME_NOT_AVAILABLE = "Time Not Available"
         const val SORT_BY = "sort_by"
         const val NEW_TO_OLD = "0"
+        const val NOTIFICATION_REQUEST_CODE = 0
+        const val NOTIFICATION_CHANNEL_ID = "NOTIFICATION_CHANNEL"
+        const val NOTIFICATION_CHANNEL_NAME = "NEWS_NOTIFICATION"
 
 
         fun getFormattedDateAndTime(time : String) : String {

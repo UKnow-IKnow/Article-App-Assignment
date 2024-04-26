@@ -1,17 +1,22 @@
-package com.example.articleappassignment
+package com.example.articleappassignment.ui
+
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.datastore.DataStore
 import androidx.datastore.preferences.Preferences
 import androidx.datastore.preferences.createDataStore
@@ -19,6 +24,9 @@ import androidx.datastore.preferences.edit
 import androidx.datastore.preferences.preferencesKey
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.articleappassignment.NewsViewModel
+import com.example.articleappassignment.NewsViewModelFactory
+import com.example.articleappassignment.R
 import com.example.articleappassignment.adapter.NewsAdapter
 import com.example.articleappassignment.databinding.ActivityMainBinding
 import com.example.articleappassignment.models.Article
@@ -33,6 +41,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener, Adapt
 
     private lateinit var binding: ActivityMainBinding
 
+    private val notificationPermissionRequestCode = 1001
     private val viewModel: NewsViewModel by viewModels { NewsViewModelFactory(repository) }
     private val repository = NewsRepository()
     private var adapter : NewsAdapter? = null
@@ -43,6 +52,7 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener, Adapt
     private var sortByAdapter :  ArrayAdapter<String>? = null
 
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -50,6 +60,13 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener, Adapt
         setContentView(view)
         dataStore = createDataStore(SORT_BY)
         filters = resources.getStringArray(R.array.filters)
+
+        if (!isNotificationPermissionGranted()) {
+            // Request notification permission
+            requestNotificationPermission()
+        } else {
+            true
+        }
 
         lifecycleScope.launch {
             var value = readDataStore(SORT_BY)
@@ -152,4 +169,40 @@ class MainActivity : AppCompatActivity(), NewsAdapter.OnItemClickListener, Adapt
             binding.recyclerView.smoothScrollToPosition(0)
         }
     }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun isNotificationPermissionGranted(): Boolean {
+        // Check if notification permission is granted
+        return ContextCompat.checkSelfPermission(
+            this,
+            android.Manifest.permission.POST_NOTIFICATIONS
+        ) == PackageManager.PERMISSION_GRANTED
+    }
+
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun requestNotificationPermission() {
+        // Request notification permission
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),
+            notificationPermissionRequestCode
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == notificationPermissionRequestCode) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Notification permission granted, proceed with your app's functionality
+            } else {
+                // Notification permission denied, show a toast message
+                Toast.makeText(this, "Notification permission denied", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
 }
