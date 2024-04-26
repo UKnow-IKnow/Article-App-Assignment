@@ -52,6 +52,7 @@ This Android application is a Article App built entirely in Kotlin, providing us
 - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - For asynchronous and more. Speacially used at the time of networking calls and using database .
 - [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview?authuser=2) - RecyclerView makes it easy to efficiently display large sets of data. To show large lists.
 - [Glide](https://github.com/bumptech/glide.git) - Glide is a fast and efficient open-source media management and image loading framework for Android developed by bumptech. In this tutorial, we will use this awesome library to show an image from the internet on our apps screen.
+- [Shimmer](https://github.com/facebook/shimmer-android.git) - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app, It is useful as an unobtrusive loading indicator, and was originally developed for Facebook Home.
 - [MVVM](https://developer.android.com/jetpack/guide) - MVVM is one of the architectural patterns which enhances separation of concerns, it allows separating the user interface logic from the business (or the back-end) logic. Its target (with other MVC patterns goal) is to achieve the following principle “Keeping UI code simple and free of app logic in order to make it easier to manage”.
 
 <table align="center">
