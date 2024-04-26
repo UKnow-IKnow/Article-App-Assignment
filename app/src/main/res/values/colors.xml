@@ -3,7 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background">#FFFCF5E5</color>
-    <color name="textColor">#FF222831</color>
-    <color name="appbar">#FFFFDEAD</color>
+    <color name="background">#FF31363F</color>
+    <color name="textColor">#FFEEEEEE</color>
+    <color name="appbar">#FF222831</color>
+    <color name="shimmerColor">#C2C2C2</color>
 </resources>

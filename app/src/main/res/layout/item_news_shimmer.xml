@@ -18,61 +18,49 @@
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:scaleType="centerCrop"
+            android:background="@color/shimmerColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/background"
-            app:strokeWidth="2dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/publishTime"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/date"
-            android:fontFamily="@font/kadwa_regular"
-            android:textColor="@color/textColor"
+            android:background="@color/shimmerColor"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@+id/newsImage"
             app:layout_constraintTop_toBottomOf="@+id/newsImage" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/AuthorName"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/kadwa_regular"
-            android:text="@string/moengage"
-            android:textColor="@color/textColor"
-            android:textSize="12sp"
+            android:background="@color/shimmerColor"
             app:layout_constraintEnd_toEndOf="@+id/newsImage"
             app:layout_constraintTop_toBottomOf="@+id/newsImage" />
 
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/title"
-            android:textColor="@color/textColor"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            android:background="@color/shimmerColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/publishTime" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/description"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:maxLines="3"
-            android:text="@string/description"
-            android:textColor="@color/textColor"
-            android:textSize="14sp"
-            android:fontFamily="@font/kadwa_regular"
+            android:background="@color/shimmerColor"
             app:layout_constraintEnd_toEndOf="@+id/title"
             app:layout_constraintStart_toStartOf="@+id/title"
             app:layout_constraintTop_toBottomOf="@+id/title" />
