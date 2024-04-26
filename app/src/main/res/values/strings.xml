@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Article App Assignment</string>
+    <string name="app_name">Article App</string>
     <string name="sort_by">Sort By</string>
     <string name="new_to_old">New to Old</string>
     <string name="date">Date</string>
