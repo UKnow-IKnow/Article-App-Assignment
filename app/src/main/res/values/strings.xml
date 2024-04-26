@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Article App Assignment</string>
+    <string name="sort_by">Sort By</string>
+    <string name="new_to_old">New to Old</string>
+    <string name="date">Date</string>
+    <string name="moengage">MoEngage</string>
+    <string name="title">Tangerine’s pretty self-care app combines habit and mood tracking</string>
+    <string name="description">Tangerine’s pretty self-care app combines habit and mood tracking</string>
+
+    <string-array name="filters">
+        <item>New to Old</item>
+        <item>Old to New</item>
+    </string-array>
+
 </resources>

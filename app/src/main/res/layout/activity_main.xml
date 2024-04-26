@@ -14,15 +14,51 @@
         android:background="@color/appbar"
         app:elevation="2dp">
 
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:theme="@style/ToolbarTheme"
-            app:popupTheme="@style/ThemeOverlay.MyPopupTheme"
-            app:title="Headline"
-            app:titleTextColor="@color/textColor" />
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:theme="@style/ToolbarTheme"
+                app:popupTheme="@style/ThemeOverlay.MyPopupTheme"
+                app:title="Headline"
+                app:titleTextColor="@color/textColor" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dropdown"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="@color/background"
+                android:hint="@string/sort_by"
+                app:boxBackgroundColor="@color/background"
+                app:boxStrokeColor="@color/textColor"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="2dp"
+                app:hintTextColor="@color/textColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/sortText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:text="@string/new_to_old"
+                    android:textColor="@color/textColor"
+                    app:dropDownBackgroundTint="@color/background">
+
+                </AutoCompleteTextView>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -32,18 +68,20 @@
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:padding="8dp"
-        tools:listitem="@layout/item_news"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appbar" />
+        app:layout_constraintTop_toBottomOf="@+id/appbar"
+        tools:listitem="@layout/item_news" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:indeterminate="true"
-        app:indicatorSize="50dp"
+        app:indicatorColor="@color/textColor"
+        app:indicatorSize="60dp"
+        app:trackColor="@color/appbar"
         app:trackThickness="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

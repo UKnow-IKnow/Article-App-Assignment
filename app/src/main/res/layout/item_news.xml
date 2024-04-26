@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="6dp"
     app:cardCornerRadius="15dp"
     app:cardBackgroundColor="@color/white">
 
@@ -15,7 +15,7 @@
         android:padding="10dp">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/NewsImage"
+            android:id="@+id/newsImage"
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:scaleType="centerCrop"
@@ -27,28 +27,16 @@
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/publishDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/kadwa_regular"
-            android:textColor="@color/textColor"
-            android:textSize="12sp"
-            android:drawableStart="@drawable/ic_calendar"
-            app:layout_constraintStart_toStartOf="@+id/NewsImage"
-            app:layout_constraintTop_toBottomOf="@+id/NewsImage" />
-
-        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/publishTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:drawableStart="@drawable/ic_time"
+            android:layout_marginTop="8dp"
+            android:text="@string/date"
             android:fontFamily="@font/kadwa_regular"
             android:textColor="@color/textColor"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/publishDate"
-            app:layout_constraintTop_toBottomOf="@+id/publishDate" />
+            app:layout_constraintStart_toStartOf="@+id/newsImage"
+            app:layout_constraintTop_toBottomOf="@+id/newsImage" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/AuthorName"
@@ -56,43 +44,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/kadwa_regular"
-            android:text="MoEngage"
+            android:text="@string/moengage"
             android:textColor="@color/textColor"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/NewsImage"
-            app:layout_constraintTop_toBottomOf="@+id/NewsImage" />
+            app:layout_constraintEnd_toEndOf="@+id/newsImage"
+            app:layout_constraintTop_toBottomOf="@+id/newsImage" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/SourceName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/kadwa_regular"
-            android:text="MoEngage"
-            android:textColor="@color/textColor"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/AuthorName"
-            app:layout_constraintTop_toBottomOf="@+id/AuthorName" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Tangerine’s pretty self-care app combines habit and mood tracking"
+            android:text="@string/title"
             android:textColor="@color/textColor"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/SourceName"
-            app:layout_constraintStart_toStartOf="@+id/publishTime"
-            app:layout_constraintTop_toBottomOf="@+id/SourceName" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publishTime" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Tangerine’s pretty self-care app combines habit and mood tracking"
+            android:maxLines="3"
+            android:text="@string/description"
             android:textColor="@color/textColor"
             android:textSize="14sp"
             android:fontFamily="@font/kadwa_regular"
